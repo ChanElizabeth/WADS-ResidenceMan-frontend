@@ -1,0 +1,98 @@
+  
+<!-- Inline CSS based on choices in "Settings" tab -->
+<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+
+
+<!-- Navigation
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Golden Leaf Residence</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Reservation</a>
+          <span class="sr-only">(current)</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+            Welcome user
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Log Out </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+<div class="user">
+  <div class="form">
+  <!-- <div class="container mt-5 mb-5 style=width: 400px">
+    <h3>Date Picker</h3>
+    <input type="text" id="picker" class="form-control"> -->
+
+
+  <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+  <div class="bootstrap-iso">
+  <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <form class="form-horizontal" method="post">
+      <div class="form-group ">
+        <label class="control-label col-sm-2 requiredField" for="date">
+        Date
+        <span class="asteriskField">
+          *
+        </span>
+        </label>
+        <div class="col-sm-10">
+        <div class="input-group">
+          <div class="input-group-addon">
+          <i class="fa fa-calendar">
+          </i>
+          </div>
+          <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+        </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+        <button class="btn btn-primary " name="submit" type="submit">
+          Submit
+        </button>
+        </div>
+      </div>
+      </form>
+    </div>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      date_input.datepicker({
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      })
+    })
+  </script>
+
+</div>
+</div>
+
+<!-- integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" -->

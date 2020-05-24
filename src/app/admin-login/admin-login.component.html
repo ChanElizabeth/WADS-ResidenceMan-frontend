@@ -1,0 +1,18 @@
+<div class="admin">
+    <div class="form">
+
+        <div class="alert alert-danger" [hidden]="!error">
+            {{error}}
+        </div>
+
+        <div class="login">
+            <h2>ADMIN LOGIN</h2>
+        </div>
+        
+        <form class="input-logtxt" (ngSubmit)="onSubmit()"> 
+            <input type="text" class="input-field" name="username" placeholder="Username" [(ngModel)]="Userform.username" required>
+            <input type="password" class="input-field" name="password" placeholder="Password" [(ngModel)]="Userform.password" required>
+            <button type="submit" class="submit-btn" >Login</button>
+        </form>
+    </div>  
+</div>

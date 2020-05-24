@@ -1,0 +1,22 @@
+.user{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(252, 248, 248, 0.6), rgba(250, 247, 247, 0.4)), url(pool.jpg) no-repeat ;
+    /* background-position: center;
+    background-size: cover; */
+    position: absolute;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+   -o-background-size: cover;
+}
+
+.form{
+    height: 350px;
+    width: 380px;
+    position: relative;
+    margin: 15% auto;
+    background: transparent;
+    overflow: hidden;
+    box-sizing: border-box;
+}

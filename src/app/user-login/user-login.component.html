@@ -1,0 +1,36 @@
+<div class="user">
+    <div class="form">
+
+        <div class="alert alert-danger" [hidden]="!error">
+            {{error}}
+        </div>
+
+        <div class="login">
+            <h2>ACCOUNT LOGIN</h2>
+        </div>
+        
+        <form class="input-logtxt" (ngSubmit)="onSubmit()"> 
+            <input type="email" class="input-field" name="email" placeholder="User Email" [(ngModel)]="Userform.email" required>
+            <input type="password" class="input-field" name="password" placeholder="Password" [(ngModel)]="Userform.password" required>
+            <button type="submit" class="submit-btn" >Login</button>
+        </form>
+    </div>  
+</div>
+
+<!-- <script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+
+    function login(){
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0px";
+    }
+
+    function set_data(){
+        var name = document.getElementById("fname");
+        sessionStorage.setItem("name", name.value)
+    }
+
+</script> -->
