@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
+export class AdminService {
 
-export class AuthService {
-
-  private redirectUrl: string = '';
-	private loginUrl: string = '/login';
+  private redirectUrl: string;
+	private adminUrl: string = '/admin';
 
   private loggedInStatus: boolean = false;
 
@@ -28,7 +28,7 @@ export class AuthService {
 	setRedirectUrl(url: string): void {
 		this.redirectUrl = url;
 	}
-	getLoginUrl(): string {
-		return this.loginUrl;
+	getAdminUrl(): string {
+		return this.adminUrl;
 	}
 }

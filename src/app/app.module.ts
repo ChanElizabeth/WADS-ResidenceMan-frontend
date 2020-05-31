@@ -13,6 +13,7 @@ import { AuthGuard } from './auth.guard';
 import { AuthService } from './services/auth.service';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomeComponent,
     ReservationComponent,
     AdminLoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

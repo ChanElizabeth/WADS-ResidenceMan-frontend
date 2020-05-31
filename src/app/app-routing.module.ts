@@ -6,13 +6,16 @@ import { AuthGuard } from './auth.guard';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { NewsComponent } from './news/news.component';
 
 const routes: Routes = [
-  { path: '', component: UserLoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: UserLoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent },
   { path: 'admin', component: AdminLoginComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'reser', component: ReservationComponent, canActivate: [AuthGuard]}
+  { path: 'reser', component: ReservationComponent },
+  { path: 'news', component: NewsComponent}
 ];
 
 @NgModule({

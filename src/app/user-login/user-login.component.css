@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: "Lucida Grande",Tahoma,"Lucida Sans Unicode",Verdana, sans-serif;
 }
 
 .user{
@@ -29,7 +29,7 @@
 
 .login{
     width: 220px;
-    margin: 42px auto;
+    margin: 50px auto;
     position: relative;
 }
 
@@ -47,7 +47,7 @@
 
 .input-field{
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 10px;
     margin: 5px 0;
     border-left: 0;
     border-top: 0;

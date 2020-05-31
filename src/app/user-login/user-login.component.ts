@@ -47,9 +47,10 @@ export class UserLoginComponent implements OnInit {
     //   this.route.navigate(['/home']);
     // }
     this.auth.setLoggedIn(true);
+    this.auth.setRedirectUrl('/home');
     let url =  this.auth.getRedirectUrl(); 
-			 console.log('Redirect Url:'+ url);
-			 this.route.navigate([ url ]);			
+    console.log('Redirect Url:'+ url);
+    this.route.navigate([ url ]);			
     // this.auth.setLoggedIn(true);
     // this.route.navigateByUrl('/home');
         // this.Token.handle(data);
