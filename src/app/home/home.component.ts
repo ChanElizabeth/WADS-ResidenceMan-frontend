@@ -15,12 +15,6 @@ export class HomeComponent implements OnInit {
   lstofnews;
 
   ngOnInit(): void {
-    // this.auth.setLoggedIn(true);
-    // this.auth.setRedirectUrl('/home');
-    // let url =  this.auth.getRedirectUrl(); 
-    // console.log('Redirect Url:'+ url);
-    // this.route.navigate([ url ]);	
-
     this.news.getNews().subscribe(
       data => {
         this.lstofnews = data

@@ -1,98 +1,100 @@
-  
-<!-- Inline CSS based on choices in "Settings" tab -->
-<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+<!-- Navigation Bar -->
+<app-navbar></app-navbar>
 
+<!-- Reservation Body -->
+<div class="container-contact100">
+  <div class="wrap-contact100">
+    <form class="contact100-form validate-form" (ngSubmit)="onSubmit()">
+      <span class="contact100-form-title">
+        Make a Reservation
+      </span>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Golden Leaf Residence</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerlink="/home">Home
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Reservation</a>
-          <span class="sr-only">(current)</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerlink="/home">Contact</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-            Welcome user
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Log Out </a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="user">
-  <div class="form">
-  <!-- <div class="container mt-5 mb-5 style=width: 400px">
-    <h3>Date Picker</h3>
-    <input type="text" id="picker" class="form-control"> -->
-
-
-  <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-  <div class="bootstrap-iso">
-  <div class="container-fluid">
-    <div class="row">
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <form class="form-horizontal" method="post">
-      <div class="form-group ">
-        <label class="control-label col-sm-2 requiredField" for="date">
-        Date
-        <span class="asteriskField">
-          *
-        </span>
+      <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <input class="input100" id="name" type="text" name="name" placeholder="Name" [(ngModel)]="ReservationsForm.name" required>
+        <label class="label-input100" for="name">
+          <span class="far fa-address-card icon"></span>
         </label>
-        <div class="col-sm-10">
-        <div class="input-group">
-          <div class="input-group-addon">
-          <i class="fa fa-calendar">
-          </i>
-          </div>
-          <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+      </div>
+
+      <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+        <input class="input100" id="email" type="text" name="email" placeholder="Email" [(ngModel)]="ReservationsForm.email" required>
+        <label class="label-input100" for="email">
+            <span class="far fa-envelope"></span>
+        </label>
+      </div>
+          
+
+      <div class="wrap-input100 validate-input" data-validate = "Phone is required">
+        <input class="input100" id="phone" type="text" name="phone" placeholder="Phone" [(ngModel)]="ReservationsForm.phoneNo" required>
+        <label class="label-input100" for="phone">
+          <span class="fas fa-mobile-alt"></span>
+        </label>
+      </div>
+              
+        <div class="wrap-dropdown validate-input" data-validate="Venue is required">
+          <div class="dropdown">
+            <label class="label-dropdown" for="venue">
+              <span class="fas fa-home"></span>
+            </label>
+            <div class="dropbtn" id="venue" type="text">Venue</div>
+          
+            <select class="dropdown-content" type="text" name="venue" [(ngModel)]="ReservationsForm.venue" required>
+              <option *ngFor="let n of venue" [value]="n.venueName">
+                {{ n.venueName }}
+              </option>
+            </select>
+          </div> 
         </div>
+        
+        <div class="wrap-datetime validate-input" data-validate="Date and time is required">
+            <div class="input-datetime">
+                <label class="label-datetime" for="datetime">
+                    <span class="far fa-calendar-alt"></span>
+                </label>
+                <label class="label-datetimetext" for="datetime">
+                    Date and Time
+                </label>
+                <input type="date" id="datetime" name="datetime" placeholder="Date and Time" class="datetimepicker" [(ngModel)]="ReservationsForm.dateTime" required>
+              </div>
+        </div>
+        
+              
+
+      <div class="wrap-input100 validate-input" data-validate = "Message is required">
+        <textarea class="input100" name="description" placeholder="Description of Event" [(ngModel)]="ReservationsForm.description" required></textarea>
+      </div>
+
+      <div class="container-contact100-form-btn">
+        <div class="wrap-contact100-form-btn">
+          <div class="contact100-form-bgbtn"></div>
+          <button type="submit" class="contact100-form-btn">
+            Confirm Reservation
+          </button>
+        </div>      
+        <div class="unavailable-date">
+          <h6>Unavailable Date:</h6>
+          <div class="card-body" *ngFor="let n of unavailableDate">
+          <p class="card-text">{{ n.dateTime }}</p>
         </div>
       </div>
-      <div class="form-group">
-        <div class="col-sm-10 col-sm-offset-2">
-        <button class="btn btn-primary " name="submit" type="submit">
-          Submit
-        </button>
-        </div>
-      </div>
-      </form>
-    </div>
-    </div>
+      </div>              
+    </form>
   </div>
-  </div>
-
-  <script>
-    $(document).ready(function(){
-      var date_input=$('input[name="date"]'); //our date input has the name "date"
-      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-      date_input.datepicker({
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      })
-    })
-  </script>
-
-</div>
 </div>
 
-<!-- integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" -->
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>

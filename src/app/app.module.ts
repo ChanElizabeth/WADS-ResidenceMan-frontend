@@ -14,6 +14,9 @@ import { AuthService } from './services/auth.service';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NewsComponent } from './news/news.component';
+import { AdminGuard } from './admin.guard';
+import { ComplaintsComponent } from './complaints/complaints.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { NewsComponent } from './news/news.component';
     ReservationComponent,
     AdminLoginComponent,
     DashboardComponent,
-    NewsComponent
+    NewsComponent,
+    ComplaintsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,7 @@ import { NewsComponent } from './news/news.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

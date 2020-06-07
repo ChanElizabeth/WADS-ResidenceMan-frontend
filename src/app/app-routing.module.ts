@@ -7,15 +7,21 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { NewsComponent } from './news/news.component';
+import { AdminGuard } from './admin.guard';
+import { ComplaintsComponent } from './complaints/complaints.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminLoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'reser', component: ReservationComponent },
-  { path: 'news', component: NewsComponent}
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AdminGuard] },
+  { path: 'reservations', component: ReservationComponent, canActivate: [AuthGuard] },
+  { path: 'news', component: NewsComponent, canActivate: [AdminGuard] },
+  { path: 'complaints', component: ComplaintsComponent, canActivate: [AuthGuard] },
+  { path: 'nav', component: NavbarComponent },
+
 ];
 
 @NgModule({

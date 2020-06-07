@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../services/admin.service';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -10,27 +11,35 @@ import { AdminService } from '../services/admin.service';
 export class AdminLoginComponent implements OnInit {
 
   public Userform = {
-    username: null,
+    email: null,
     password: null,
   }
 
   public error = null;
 
-  constructor(private route: Router, private auth:AdminService) { }
+  constructor(private route: Router, private auth:AdminService, private tok:TokenService) { }
 
   onSubmit(){
-    if (this.Userform.username == "GoldenLeafAdmin" && this.Userform.password == "golden123leaf456"){
-      // this.route.navigateByUrl('/dashboard');
+    this.auth.login(this.Userform).subscribe(
+      (data:any) => {  
+        console.log(data)
+        this.tok.handle(data);
+        this.auth.setLoggedIn(true);
+        this.auth.setRedirectUrl('/dashboard');
+        let url =  this.auth.getRedirectUrl(); 
+        console.log('Redirect Url:'+ url);
+        this.route.navigate([ url ]);			
+      },
+      error => this.handleError(error)
+    );
+  }
 
-      this.auth.setLoggedIn(true);
-      this.auth.setRedirectUrl('/dashboard');
-      let url =  this.auth.getRedirectUrl(); 
-      console.log('Redirect Url:'+ url);
-      this.route.navigate([ url ]);			
-    }
+  handleError(error){
+    this.error = error.error.error;
   }
 
   ngOnInit(): void {
+    this.auth.setLoggedIn(false);
   }
 
 }

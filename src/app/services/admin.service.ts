@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
+
 export class AdminService {
 
   private redirectUrl: string;
@@ -30,5 +30,11 @@ export class AdminService {
 	}
 	getAdminUrl(): string {
 		return this.adminUrl;
-	}
+  }
+  
+  login(data){
+    return this.http.post('http://localhost:8000/api/admin', data, {
+    }
+  )
+}
 }

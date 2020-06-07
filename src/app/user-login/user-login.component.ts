@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { LoginService } from '../services/login.service';
 import { TokenService } from '../services/token.service';
 import { Router } from '@angular/router';
@@ -22,38 +21,22 @@ export class UserLoginComponent implements OnInit {
   
   constructor(private Login:LoginService,
     private route: Router,
-    private auth: AuthService,) { }
+    private auth: AuthService,
+    private tok: TokenService) { }
 
   onSubmit(){
     this.Login.login(this.Userform).subscribe(
-      data => {
-        if(data.success){
-          // console.log(data)
-          this.handleResponse()
-        }
-        else{
-          this.auth.setLoggedIn(false);
-          error => this.handleError(error)
-        }
-      } 
-      // data => console.log(data),
-      // error => this.handleError(error)
+      (data:any) => {  
+        console.log(data)
+        this.tok.handle(data);
+        this.auth.setLoggedIn(true);
+        this.auth.setRedirectUrl('/home');
+        let url =  this.auth.getRedirectUrl(); 
+        console.log('Redirect Url:'+ url);
+        this.route.navigate([ url ]);	
+      },
+      error => this.handleError(error)
     );
-  }
-
-  handleResponse(){
-    // if(data.success){
-    //   this.auth.setLoggedIn(true);
-    //   this.route.navigate(['/home']);
-    // }
-    this.auth.setLoggedIn(true);
-    this.auth.setRedirectUrl('/home');
-    let url =  this.auth.getRedirectUrl(); 
-    console.log('Redirect Url:'+ url);
-    this.route.navigate([ url ]);			
-    // this.auth.setLoggedIn(true);
-    // this.route.navigateByUrl('/home');
-        // this.Token.handle(data);
   }
 
   handleError(error){
@@ -61,6 +44,8 @@ export class UserLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.auth.setLoggedIn(false);
+
   }
 
 }

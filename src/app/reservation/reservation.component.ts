@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
+import { Venue } from './venue';
+import { ReservationService } from '../services/reservation.service';
 
 @Component({
   selector: 'app-reservation',
@@ -9,9 +9,39 @@ import { Router } from '@angular/router';
 })
 export class ReservationComponent implements OnInit {
 
-  constructor(private auth:AuthService, private route:Router) { }
-
-  ngOnInit(): void {
+  public ReservationsForm = {
+    name: null,
+    email: null,
+    phoneNo: null,
+    venue: null,
+    dateTime: null,
+    description:null
   }
 
+  unavailableDate;
+  venue: Venue[];
+  
+  constructor(private reserService:ReservationService) { }
+
+  onSubmit(){
+    this.reserService.reservations(this.ReservationsForm).subscribe(
+      data => { 
+          console.log(data.obj)   
+          window.alert("Added Successfully!")  
+      } 
+    );
+  }
+
+  ngOnInit(): void {
+    this.venue = [
+      {venueName: "Swimming Pool"},
+      {venueName: "Function Hall"}
+    ]
+
+    this.reserService.getReservations().subscribe(
+      data => {
+        this.unavailableDate = data
+      }
+    )
+  }
 }

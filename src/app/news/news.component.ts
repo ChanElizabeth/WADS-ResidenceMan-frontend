@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../services/home.service';
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-news',
@@ -16,11 +17,9 @@ export class NewsComponent implements OnInit {
 
   public error = null;
 
-  public success;
-
   lstofnews;
 
-  constructor(private homeNews:HomeService, private news:HomeService) { }
+  constructor(private homeNews:HomeService) { }
 
   onSubmit(){
     this.homeNews.news(this.NewsForm).subscribe(
@@ -32,11 +31,10 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.news.getNews().subscribe(
+    this.homeNews.getNews().subscribe(
       data => {
         this.lstofnews = data
       }
     )
   }
-
 }
