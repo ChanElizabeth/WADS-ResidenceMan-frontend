@@ -6,6 +6,8 @@ interface myData{
   obj: Object
 }
 
+const API_URL: string = 'http://localhost:8000';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +19,7 @@ export class ComplaintService {
   tok = this.token.getToken();
 
   complaints(data){
-    return this.http.post<myData>('http://localhost:8000/api/complaint', data, {
+    return this.http.post<myData>(API_URL + '/api/complaint', data, {
       headers: { 'Accept': 'application/json', 'Authorization': `Bearer ${this.token.getToken()}`  }
     })
   }
