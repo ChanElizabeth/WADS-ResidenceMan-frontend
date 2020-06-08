@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../services/login.service';
 import { TokenService } from '../services/token.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -19,16 +18,16 @@ export class UserLoginComponent implements OnInit {
 
   public error = null;
   
-  constructor(private Login:LoginService,
+  constructor(
     private route: Router,
     private auth: AuthService,
-    private tok: TokenService) { }
+    private token: TokenService) { }
 
   onSubmit(){
-    this.Login.login(this.Userform).subscribe(
+    this.auth.login(this.Userform).subscribe(
       (data:any) => {  
         console.log(data)
-        this.tok.handle(data);
+        this.token.handle(data);
         this.auth.setLoggedIn(true);
         this.auth.setRedirectUrl('/home');
         let url =  this.auth.getRedirectUrl(); 

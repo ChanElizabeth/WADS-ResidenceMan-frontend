@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+const API_URL: string = 'http://52.220.255.44:8000';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,8 +35,7 @@ export class AdminService {
   }
   
   login(data){
-    return this.http.post('http://localhost:8000/api/admin', data, {
+    return this.http.post(API_URL + '/api/admin', data, {
     }
-  )
-}
+  )}
 }

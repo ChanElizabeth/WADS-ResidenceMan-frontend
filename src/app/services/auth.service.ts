@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TokenService } from './token.service';
 
+const API_URL: string = 'http://52.220.255.44:8000';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,9 +35,14 @@ export class AuthService {
 		return this.loginUrl;
   }
   
+  login(data){
+    return this.http.post(API_URL + '/api/login', data, {
+    }
+  )}
+
   logOut(data){
-    return this.http.post('http://localhost:8000/api/user/logout', data, {
+    return this.http.post(API_URL + '/api/user/logout', data, {
       headers: { 'Accept': 'application/json', 'Authorization': `Bearer ${this.token.getToken()}`  }
   })
-}
+  }
 }

@@ -6,7 +6,7 @@ interface myData{
   obj: Object
 }
 
-const API_URL: string = 'http://localhost:8000';
+const API_URL: string = 'http://52.220.255.44:8000';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,6 @@ export class ComplaintService {
   }
 
   getComplaints(){
-    return this.http.get('http://localhost:8000/api/complaint');
+    return this.http.get(API_URL + '/api/complaint');
   }
 }

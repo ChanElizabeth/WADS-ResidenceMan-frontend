@@ -1,0 +1,106 @@
+.text-muted{
+    margin-left: 1000px;
+}
+
+footer {
+    display: block;
+}
+
+.blockquote-footer {
+    display: block;
+    font-size: 80%;
+    color: #6c757d;
+}
+
+.blockquote-footer::before {
+    content: "— ";   
+}
+
+.card-footer {
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-footer:last-child {
+    border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+}
+
+@media (min-width: 576px) {
+.card-group {
+    display: flex;
+    flex-flow: row wrap;
+}
+.card-group > .card {
+    flex: 1 0 0%;
+    margin-bottom: 0;
+}
+.card-group > .card + .card {
+    margin-left: 0;
+    border-left: 0;
+}
+.card-group > .card:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.card-group > .card:not(:last-child) .card-img-top,
+.card-group > .card:not(:last-child) .card-header {
+    border-top-right-radius: 0;
+}
+.card-group > .card:not(:last-child) .card-img-bottom,
+.card-group > .card:not(:last-child) .card-footer {
+    border-bottom-right-radius: 0;
+}
+.card-group > .card:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.card-group > .card:not(:first-child) .card-img-top,
+.card-group > .card:not(:first-child) .card-header {
+    border-top-left-radius: 0;
+}
+.card-group > .card:not(:first-child) .card-img-bottom,
+.card-group > .card:not(:first-child) .card-footer {
+    border-bottom-left-radius: 0;
+}
+}
+
+.modal-dialog-scrollable .modal-header,
+.modal-dialog-scrollable .modal-footer {
+flex-shrink: 0;
+}
+
+.modal-footer {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: flex-end;
+padding: 0.75rem;
+border-top: 1px solid #dee2e6;
+border-bottom-right-radius: calc(0.3rem - 1px);
+border-bottom-left-radius: calc(0.3rem - 1px);
+}
+.modal-footer > * {
+margin: 0.25rem;
+}
+
+#layoutAuthentication #layoutAuthentication_footer {
+min-width: 0;
+}
+
+#layoutError #layoutError_footer {
+min-width: 0;
+}
+
+.sb-sidenav .sb-sidenav-footer {
+padding: 0.75rem;
+flex-shrink: 0;
+}
+
+.sb-sidenav-dark .sb-sidenav-footer {
+background-color: #343a40;
+}
+
+.sb-sidenav-light .sb-sidenav-footer {
+background-color: #e9ecef;
+}

@@ -10,6 +10,8 @@ import { NewsComponent } from './news/news.component';
 import { AdminGuard } from './admin.guard';
 import { ComplaintsComponent } from './complaints/complaints.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AdminnavbarComponent } from './adminnavbar/adminnavbar.component';
+import { AdminfooterComponent } from './adminfooter/adminfooter.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
@@ -20,7 +22,7 @@ const routes: Routes = [
   { path: 'reservations', component: ReservationComponent, canActivate: [AuthGuard] },
   { path: 'news', component: NewsComponent, canActivate: [AdminGuard] },
   { path: 'complaints', component: ComplaintsComponent, canActivate: [AuthGuard] },
-  { path: 'nav', component: NavbarComponent },
+  { path: 'nav', component: AdminfooterComponent },
 
 ];
 

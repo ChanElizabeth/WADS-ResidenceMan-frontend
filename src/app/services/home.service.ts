@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TokenService } from './token.service';
 
+const API_URL: string = 'http://52.220.255.44:8000';
+
 interface myData{
   obj: Object
 }
@@ -14,13 +16,13 @@ export class HomeService {
   constructor(private http:HttpClient, private token:TokenService) { }
 
   news(data){
-    return this.http.post<myData>('http://localhost:8000/api/new', data, {
+    return this.http.post<myData>(API_URL + '/api/new', data, {
       headers: { 'Accept': 'application/json', 'Authorization': `Bearer ${this.token.getToken()}`  }
     }
     )
   }
 
   getNews(){
-    return this.http.get('http://localhost:8000/api/new');
+    return this.http.get(API_URL + '/api/new');
   }
 }

@@ -17,13 +17,13 @@ export class AdminLoginComponent implements OnInit {
 
   public error = null;
 
-  constructor(private route: Router, private auth:AdminService, private tok:TokenService) { }
+  constructor(private route: Router, private auth:AdminService, private token:TokenService) { }
 
   onSubmit(){
     this.auth.login(this.Userform).subscribe(
       (data:any) => {  
         console.log(data)
-        this.tok.handle(data);
+        this.token.handle(data);
         this.auth.setLoggedIn(true);
         this.auth.setRedirectUrl('/dashboard');
         let url =  this.auth.getRedirectUrl(); 

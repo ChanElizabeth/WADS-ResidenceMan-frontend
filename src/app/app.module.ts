@@ -17,6 +17,9 @@ import { NewsComponent } from './news/news.component';
 import { AdminGuard } from './admin.guard';
 import { ComplaintsComponent } from './complaints/complaints.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AdminnavbarComponent } from './adminnavbar/adminnavbar.component';
+import { AdminfooterComponent } from './adminfooter/adminfooter.component';
+import { AdminsidenavComponent } from './adminsidenav/adminsidenav.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     DashboardComponent,
     NewsComponent,
     ComplaintsComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdminnavbarComponent,
+    AdminfooterComponent,
+    AdminsidenavComponent
   ],
   imports: [
     BrowserModule,

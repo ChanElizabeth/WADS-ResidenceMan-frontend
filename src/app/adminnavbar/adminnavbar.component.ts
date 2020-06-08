@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { TokenService } from '../services/token.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-adminnavbar',
+  templateUrl: './adminnavbar.component.html',
+  styleUrls: ['./adminnavbar.component.css']
 })
-
-export class NavbarComponent implements OnInit {
+export class AdminnavbarComponent implements OnInit {
 
   constructor(private auth:AuthService, private token:TokenService, private route:Router) { }
 
@@ -24,10 +23,10 @@ export class NavbarComponent implements OnInit {
       data => { 
         console.log(data);
         this.token.remove();
-        this.route.navigateByUrl('');	
+        this.route.navigateByUrl('/admin');	
       })
   }
-  
+
   ngOnInit(): void {
     this.loggedInStatus = this.auth.isLoggedIn();
   }
