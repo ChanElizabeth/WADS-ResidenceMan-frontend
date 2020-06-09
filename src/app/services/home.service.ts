@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TokenService } from './token.service';
 
-const API_URL: string = 'http://backend.goldenleaf.codes';
+const API_URL: string = 'http://backend.goldenleaf.codes:8000';
 
 interface myData{
   obj: Object
