@@ -28,5 +28,4 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - run: npm ci
-    - run: npm test
     - run: npm run build
