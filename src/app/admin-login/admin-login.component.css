@@ -8,8 +8,6 @@
     height: 100%;
     width: 100%;
     background: linear-gradient(rgba(56, 55, 55, 0.6), rgba(240, 234, 234, 0.4)), url(kavling.jpg) no-repeat ;
-    /* background-position: center;
-    background-size: cover; */
     position: absolute;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -62,7 +60,6 @@
     cursor: pointer;
     display: block;
     margin: 10% auto;
-    /* background: linear-gradient(to right, #ff105f, #ffad05); */
     background: linear-gradient(to right, #2475e0, #84d3f8);
 
     border: 0;
