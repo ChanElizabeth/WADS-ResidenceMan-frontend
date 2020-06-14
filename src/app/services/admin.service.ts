@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+// Service for login to Admin
 const API_URL: string = 'https://backend.goldenleaf.codes';
 
 @Injectable({

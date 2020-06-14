@@ -22,7 +22,6 @@ export class NavbarComponent implements OnInit {
   logout(){
     this.auth.logOut(this.Tokenform).subscribe(
       data => { 
-        console.log(data);
         this.token.remove();
         this.route.navigateByUrl('');	
       })

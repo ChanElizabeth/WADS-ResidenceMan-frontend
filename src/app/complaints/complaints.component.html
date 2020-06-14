@@ -1,6 +1,7 @@
 <!-- Navigation -->
 <app-navbar></app-navbar>
 
+<!-- User Complaint body -->
 <div class="container-contact100">
     <div class="wrap-contact100">
         <form class="contact100-form validate-form" (ngSubmit)="onSubmit()">
@@ -38,10 +39,9 @@
                     </div>
 
             <div class="wrap-input100 validate-input" data-validate = "Message is required">
-                <textarea class="input100" name="message" placeholder="Enter Complaint Here" [(ngModel)]="ComplaintsForm.complaint" required></textarea>
+                <textarea class="input100" name="message" placeholder="Enter Complaint Here (Please include your kavling number)" [(ngModel)]="ComplaintsForm.complaint" required></textarea>
             </div>
             
-
             <div class="container-contact100-form-btn">
                 <div class="wrap-contact100-form-btn">
                     <div class="contact100-form-bgbtn"></div>
