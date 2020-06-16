@@ -39,7 +39,7 @@ export class AdminLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.auth.setLoggedIn(false);
+    // this.auth.setLoggedIn(false);
   }
 
 }

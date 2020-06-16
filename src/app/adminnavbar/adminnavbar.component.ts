@@ -24,6 +24,7 @@ export class AdminnavbarComponent implements OnInit {
         this.token.remove();
         this.route.navigateByUrl('/admin');	
       })
+    this.auth.setLoggedIn(false);
   }
 
   ngOnInit(): void {

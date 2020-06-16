@@ -43,7 +43,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.auth.setLoggedIn(false);
+    // this.auth.setLoggedIn(false);
 
   }
 

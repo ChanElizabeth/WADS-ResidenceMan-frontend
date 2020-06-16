@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
         this.token.remove();
         this.route.navigateByUrl('');	
       })
+    this.auth.setLoggedIn(false);
   }
   
   ngOnInit(): void {
