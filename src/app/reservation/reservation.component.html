@@ -4,79 +4,85 @@
 <!-- Reservation Body -->
 <div class="container-contact100">
   <div class="wrap-contact100">
-    <form class="contact100-form validate-form" (ngSubmit)="onSubmit()">
-      <span class="contact100-form-title">
-        Make a Reservation
-      </span>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-8">
+        <form class="contact100-form validate-form" (ngSubmit)="onSubmit()">
+          <span class="contact100-form-title">
+            Make a Reservation
+          </span>
 
-      <div class="wrap-input100 validate-input" data-validate="Name is required">
-        <input class="input100" id="name" type="text" name="name" placeholder="Name" [(ngModel)]="ReservationsForm.name" required>
-        <label class="label-input100" for="name">
-          <span class="far fa-address-card icon"></span>
-        </label>
-      </div>
-
-      <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-        <input class="input100" id="email" type="text" name="email" placeholder="Email" [(ngModel)]="ReservationsForm.email" required>
-        <label class="label-input100" for="email">
-            <span class="far fa-envelope"></span>
-        </label>
-      </div>
-          
-
-      <div class="wrap-input100 validate-input" data-validate = "Phone is required">
-        <input class="input100" id="phone" type="text" name="phone" placeholder="Phone" [(ngModel)]="ReservationsForm.phoneNo" required>
-        <label class="label-input100" for="phone">
-          <span class="fas fa-mobile-alt"></span>
-        </label>
-      </div>
-              
-        <div class="wrap-dropdown validate-input" data-validate="Venue is required">
-          <div class="dropdown">
-            <label class="label-dropdown" for="venue">
-              <span class="fas fa-home"></span>
+          <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <input class="input100" id="name" type="text" name="name" placeholder="Name" [(ngModel)]="ReservationsForm.name" required>
+            <label class="label-input100" for="name">
+              <span class="far fa-address-card icon"></span>
             </label>
-            <div class="dropbtn" id="venue" type="text">Venue</div>
-          
-            <select class="dropdown-content" type="text" name="venue" [(ngModel)]="ReservationsForm.venue" required>
-              <option *ngFor="let n of venue" [value]="n.venueName">
-                {{ n.venueName }}
-              </option>
-            </select>
-          </div> 
-        </div>
-        
-        <div class="wrap-datetime validate-input" data-validate="Date and time is required">
-            <div class="input-datetime">
-                <label class="label-datetime" for="datetime">
-                    <span class="far fa-calendar-alt"></span>
-                </label>
-                <label class="label-datetimetext" for="datetime">
-                    Date and Time
-                </label>
-                <input type="date" id="datetime" name="datetime" placeholder="Date and Time" class="datetimepicker" [(ngModel)]="ReservationsForm.dateTime" required>
-              </div>
-        </div>
-        
-      <div class="wrap-input100 validate-input" data-validate = "Message is required (Please include your kavling number)">
-        <textarea class="input100" name="description" placeholder="Description of Event" [(ngModel)]="ReservationsForm.description" required></textarea>
-      </div>
+          </div>
 
-      <div class="container-contact100-form-btn">
-        <div class="wrap-contact100-form-btn">
-          <div class="contact100-form-bgbtn"></div>
-          <button type="submit" class="contact100-form-btn">
-            Confirm Reservation
-          </button>
-        </div>      
+          <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+            <input class="input100" id="email" type="text" name="email" placeholder="Email" [(ngModel)]="ReservationsForm.email" required>
+            <label class="label-input100" for="email">
+                <span class="far fa-envelope"></span>
+            </label>
+          </div>
+              
+
+          <div class="wrap-input100 validate-input" data-validate = "Phone is required">
+            <input class="input100" id="phone" type="text" name="phone" placeholder="Phone" [(ngModel)]="ReservationsForm.phoneNo" required>
+            <label class="label-input100" for="phone">
+              <span class="fas fa-mobile-alt"></span>
+            </label>
+          </div>
+                  
+            <div class="wrap-dropdown validate-input" data-validate="Venue is required">
+              <div class="dropdown">
+                <label class="label-dropdown" for="venue">
+                  <span class="fas fa-home"></span>
+                </label>
+                <div class="dropbtn" id="venue" type="text">Venue</div>
+              
+                <select class="dropdown-content" type="text" name="venue" [(ngModel)]="ReservationsForm.venue" required>
+                  <option *ngFor="let n of venue" [value]="n.venueName">
+                    {{ n.venueName }}
+                  </option>
+                </select>
+              </div> 
+            </div>
+            
+            <div class="wrap-datetime validate-input" data-validate="Date and time is required">
+                <div class="input-datetime">
+                    <label class="label-datetime" for="datetime">
+                        <span class="far fa-calendar-alt"></span>
+                    </label>
+                    <label class="label-datetimetext" for="datetime">
+                        Date and Time
+                    </label>
+                    <input type="date" id="datetime" name="datetime" placeholder="Date and Time" class="datetimepicker" [(ngModel)]="ReservationsForm.dateTime" required>
+                  </div>
+            </div>
+            
+          <div class="wrap-input100 validate-input" data-validate = "Message is required (Please include your kavling number)">
+            <textarea class="input100" name="description" placeholder="Description of Event" [(ngModel)]="ReservationsForm.description" required></textarea>
+          </div>
+
+          <div class="container-contact100-form-btn">
+            <div class="wrap-contact100-form-btn">
+              <div class="contact100-form-bgbtn"></div>
+              <button type="submit" class="contact100-form-btn">
+                Confirm Reservation
+              </button>
+            </div>      
+          </div> 
+        </form>
+      </div>  
+      <div class="col-6 col-md-4">
         <div class="unavailable-date">
           <h6>Unavailable Date:</h6>
           <div class="card-body" *ngFor="let n of unavailableDate">
-          <p class="card-text">{{ n.dateTime }}</p>
-        </div>
+            <p class="card-text">{{ n.dateTime }}</p>
+          </div>
+        </div> 
       </div>
-      </div>              
-    </form>
+    </div>
   </div>
 </div>
 
